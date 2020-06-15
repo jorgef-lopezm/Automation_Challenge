@@ -17,4 +17,11 @@ export default class Page {
   open() {
     browser.url(this.url);
   }
+
+  /**
+   * Method for changing to this desired page's window or tab
+   */
+  switchFocus() {
+    browser.switchWindosw(this.pageTitle);
+  }
 }

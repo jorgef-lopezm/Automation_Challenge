@@ -3,30 +3,30 @@ import PickADate from '../page_objects/pick-a-date.page';
 import randomNumber from '../utils/randomNumber';
 import randomDates from '../utils/randomDates';
 
-describe("Check if the calculation is correct when I select 'Valet Parking' option.", () => {
+describe("Check if the output is correct when I select 'Valet Parking' option.", () => {
   const parkingCostCalculator = new ParkingCostCalculator();
   const pickADate = new PickADate();
+  const length = randomNumber(2, 5);
+  const objDate = randomDates(new Date(2020, 0, 1), new Date(2020, 0, 30), length);
 
-  it(`I open ${parkingCostCalculator.pageTitle} webpage`, () => {
-    parkingCostCalculator.open();
-  });
-  it('I select the "Valet Parking" option from the dropdown', () => {
-    parkingCostCalculator.chooseParkingLot(0);
-  });
   it('I pick a random entry date', () => {
+    // I open website and select 'Valet Parking' option
+    parkingCostCalculator.open();
+    parkingCostCalculator.chooseParkingLot(0);
+    // I open calendar
     parkingCostCalculator.openEntryCalendar();
-
-    // Make a function to change scope
-    browser.switchWindow('Pick a Date');
-
-    const length = randomNumber(2, 5);
-    const objDate = randomDates(new Date(2020, 0, 1), new Date(2020, 0, 30), length);
-
+    pickADate.switchFocus();
+    // I select a the entry date
     pickADate.selectADate(objDate.entryDate);
+    parkingCostCalculator.switchFocus();
 
-    browser.switchWindow(parkingCostCalculator.pageTitle);
+    // I open calendar
     parkingCostCalculator.openLeavingCalendar();
-    browser.switchWindow('Pick a Date');
+    pickADate.switchFocus();
+    // I select leaving date
     pickADate.selectADate(objDate.entryDate);
+    parkingCostCalculator.switchFocus();
+    // I calculate parking rate
+    parkingCostCalculator.calculateButton();
   });
 });

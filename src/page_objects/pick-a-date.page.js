@@ -12,6 +12,7 @@ export default class PickADate extends Page {
     super();
     this.url = '';
     this.pageTitle = 'Pick A Date';
+    this.calendarSelector = 'form > table';
   }
 
   /** Month dropdown input selector */
@@ -44,10 +45,7 @@ export default class PickADate extends Page {
    * @param {Number} yearToSelect Year to select on calendar
    */
   selectYear(yearToSelect) {
-    let displayedYear = parseInt(
-      $(this.yearText).getText(),
-      10
-    );
+    let displayedYear = parseInt($(this.yearText).getText(), 10);
 
     while (displayedYear !== yearToSelect) {
       if (displayedYear > yearToSelect)
@@ -55,10 +53,7 @@ export default class PickADate extends Page {
       else if (displayedYear < yearToSelect)
         $(this.rightArrowButton).click();
 
-      displayedYear = parseInt(
-        $(this.yearText).getText(),
-        10
-      );
+      displayedYear = parseInt($(this.yearText).getText(), 10);
     }
   }
 
@@ -68,20 +63,10 @@ export default class PickADate extends Page {
    */
   selectDate(dateToSelect) {
     let index = dateToSelect;
-    let dateInView = parseInt(
-      $$(this.calendarDatesButton)[
-        index
-      ].getText(),
-      10
-    );
+    let dateInView = parseInt($$(this.calendarDatesButton)[index].getText(), 10);
 
     while (dateInView !== dateToSelect)
-      dateInView = parseInt(
-        $$(this.calendarDatesButton)[
-          ++index
-        ].getText(),
-        10
-      );
+      dateInView = parseInt($$(this.calendarDatesButton)[++index].getText(), 10);
 
     $$(this.calendarDatesButton)[index].click();
   }
@@ -95,9 +80,7 @@ export default class PickADate extends Page {
     this.selectYear(date.getFullYear());
 
     // Selecting month
-    $(this.monthDropdown).selectByIndex(
-      date.getMonth()
-    );
+    $(this.monthDropdown).selectByIndex(date.getMonth());
 
     // Selecting date
     this.selectDate(date.getDate());
