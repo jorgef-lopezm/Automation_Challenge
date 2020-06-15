@@ -5,10 +5,7 @@ module.exports = {
     mocha: true,
   },
   plugins: ['wdio', 'chai-friendly'],
-  extends: [
-    'airbnb-base',
-    'plugin:wdio/recommended',
-  ],
+  extends: ['airbnb-base', 'plugin:wdio/recommended'],
   globals: {
     assert: true,
     expect: true,
@@ -18,7 +15,6 @@ module.exports = {
   },
   root: true,
   rules: {
-    'linebreak-style': ['error', 'windows'],
     'no-tabs': 'off',
     'comma-dangle': [
       'error',
@@ -47,21 +43,12 @@ module.exports = {
       },
     ],
     strict: 'off',
-    'valid-jsdoc': [
-      'error',
-      { requireReturn: false },
-    ],
+    'valid-jsdoc': ['error', { requireReturn: false }],
     'space-before-function-paren': 'off',
     'class-methods-use-this': 'off',
-    'no-plusplus': [
-      'off',
-      { allowForLoopAfterthoughts: true },
-    ],
+    'no-plusplus': ['off', { allowForLoopAfterthoughts: true }],
     curly: ['error', 'multi'],
-    'nonblock-statement-body-position': [
-      'error',
-      'below',
-    ],
+    'nonblock-statement-body-position': ['error', 'below'],
     'import/no-extraneous-dependencies': [
       'error',
       {
