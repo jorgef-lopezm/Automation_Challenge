@@ -1,0 +1,25 @@
+{
+  "name": "Automation_Challenge",
+  "version": "1.0.0",
+  "description": "Pre-interview challenge for Acklen Avenue",
+  "main": ".eslintrc.js",
+  "dependencies": {
+    "chromedriver": "^83.0.0",
+    "wdio-chromedriver-service": "^6.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jorgef-lopezm/Automation_Challenge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jorgef-lopezm/Automation_Challenge/issues"
+  },
+  "homepage": "https://github.com/jorgef-lopezm/Automation_Challenge#readme"
+}
