@@ -10,7 +10,7 @@ pipeline {
                 sh script:'''
                     #!/bin/bash
                     cd /home/ubuntu/Automation_Challenge/
-                    git pull origin dev
+                    git pull origin master
                     npm install
                 '''   
             }
@@ -27,7 +27,13 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo "Deploying Stage"
+                inputs('Do you want to proceed?')
+                sh script:'''
+                    #!/bin/bash
+                    cd /home/ubuntu/production/Automation_Challenge/
+                    git pull origin master
+                    npm install
+                '''
             }
         }
     }
