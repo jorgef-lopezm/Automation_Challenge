@@ -25,8 +25,8 @@ describe("Check if the output is correct when I select 'Long Term Surface Parkin
   it(`I submit form with ${days} days and check output`, () => {
     expect(parkingCostCalculator.waitForDisplay(true, parkingCostCalculator.formSelector)).to.be
       .true;
-    // Choose index 3
-    parkingCostCalculator.chooseParkingLot(3);
+    // Choose index 4
+    parkingCostCalculator.chooseParkingLot(4);
 
     // I open calendar and switch to new window
     parkingCostCalculator.openEntryCalendar();
@@ -59,8 +59,8 @@ describe("Check if the output is correct when I select 'Long Term Surface Parkin
     expect(parkingCostCalculator.waitForDisplay(true, parkingCostCalculator.formSelector)).to.be
       .true;
 
-    // Choose index 3
-    parkingCostCalculator.chooseParkingLot(3);
+    // Choose index 4
+    parkingCostCalculator.chooseParkingLot(4);
 
     // I open calendar and switch to new window
     parkingCostCalculator.openEntryCalendar();

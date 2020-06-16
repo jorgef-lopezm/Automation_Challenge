@@ -94,9 +94,9 @@ describe("Check if the output is correct when I select 'Long Term Garage Parking
       expectedPrice = LONG_TERM_GARAGE_PARKING_HOUR_RATE * hours;
 
       if (minutes > 0 && expectedPrice === 8)
-        expectedPrice += 1;
+        expectedPrice += LONG_TERM_GARAGE_PARKING_HOUR_RATE;
       else if (minutes > 0)
-        expectedPrice += 2;
+        expectedPrice += LONG_TERM_GARAGE_PARKING_HOUR_RATE;
     }
 
     expect(formatMoney(parkingCostCalculator.getText(parkingCostCalculator.costText))).to.equal(
