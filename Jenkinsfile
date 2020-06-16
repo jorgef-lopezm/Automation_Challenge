@@ -1,6 +1,6 @@
 properties([pipelineTriggers([githubPush()])])
 
-node { git url: 'https://github.com/jorgef-lopezm/Automation_Engineer_Challenge.git', branch: 'master' }
+node { git url: 'https://github.com/jorgef-lopezm/Automation_Challenge.git', branch: 'master' }
 
 pipeline {
     agent any
