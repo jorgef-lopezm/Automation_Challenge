@@ -4,13 +4,13 @@ import randomNumber from '../utils/randomNumber';
 import randomDates from '../utils/randomDates';
 import formatMoney from '../utils/formatMoney';
 import {
-  LONG_TERM_GARAGE_DAILY_RATE,
-  LONG_TERM_GARAGE_WEEKLY_RATE,
-  LONG_TERM_GARAGE_PARKING_HOUR_RATE
+  LONG_TERM_SURFACE_PARKING_DAILY_RATE,
+  LONG_TERM_SURFACE_PARKING_HOUR_RATE,
+  LONG_TERM_SURFACE_PARKING_WEEKLY_RATE
 } from '../../config/test.constants';
 import randomHours from '../utils/randomHours';
 
-describe("Check if the output is correct when I select 'Long Term Garage Parking' option.", () => {
+describe("Check if the output is correct when I select 'Long Term Surface Parking' option.", () => {
   const parkingCostCalculator = new ParkingCostCalculator();
   const pickADate = new PickADate();
   const days = randomNumber(1, 49);
@@ -51,7 +51,8 @@ describe("Check if the output is correct when I select 'Long Term Garage Parking
     const amountOfDays = (days % 7);
 
     expect(formatMoney(parkingCostCalculator.getText(parkingCostCalculator.costText))).to.equal(
-      (amountOfWeeks * LONG_TERM_GARAGE_WEEKLY_RATE) + (amountOfDays * LONG_TERM_GARAGE_DAILY_RATE)
+      (amountOfWeeks * LONG_TERM_SURFACE_PARKING_WEEKLY_RATE)
+      + (amountOfDays * LONG_TERM_SURFACE_PARKING_DAILY_RATE)
     );
   });
   it(`I submit form with ${hours} hours and ${minutes} minutes for parking time duration`, () => {
@@ -87,15 +88,13 @@ describe("Check if the output is correct when I select 'Long Term Garage Parking
 
     let expectedPrice = 0;
 
-    if (hours > 6)
-      expectedPrice = 9;
+    if (hours >= 5)
+      expectedPrice = 10;
     else {
-      expectedPrice = LONG_TERM_GARAGE_PARKING_HOUR_RATE * hours;
+      expectedPrice = LONG_TERM_SURFACE_PARKING_HOUR_RATE * hours;
 
-      if (minutes > 0 && expectedPrice === 8)
-        expectedPrice += 1;
-      else if (minutes > 0)
-        expectedPrice += 2;
+      if (minutes > 0)
+        expectedPrice += LONG_TERM_SURFACE_PARKING_HOUR_RATE;
     }
 
     expect(formatMoney(parkingCostCalculator.getText(parkingCostCalculator.costText))).to.equal(

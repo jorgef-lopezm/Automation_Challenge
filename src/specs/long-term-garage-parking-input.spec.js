@@ -4,8 +4,8 @@ import randomNumber from '../utils/randomNumber';
 import randomDates from '../utils/randomDates';
 import formatMoney from '../utils/formatMoney';
 import {
-  LONG_TERM_GARAGE_DAILY_RATE,
-  LONG_TERM_GARAGE_WEEKLY_RATE,
+  LONG_TERM_GARAGE_PARKING_DAILY_RATE,
+  LONG_TERM_GARAGE_PARKING_WEEKLY_RATE,
   LONG_TERM_GARAGE_PARKING_HOUR_RATE
 } from '../../config/test.constants';
 import randomHours from '../utils/randomHours';
@@ -51,7 +51,8 @@ describe("Check if the output is correct when I select 'Long Term Garage Parking
     const amountOfDays = (days % 7);
 
     expect(formatMoney(parkingCostCalculator.getText(parkingCostCalculator.costText))).to.equal(
-      (amountOfWeeks * LONG_TERM_GARAGE_WEEKLY_RATE) + (amountOfDays * LONG_TERM_GARAGE_DAILY_RATE)
+      (amountOfWeeks * LONG_TERM_GARAGE_PARKING_WEEKLY_RATE)
+      + (amountOfDays * LONG_TERM_GARAGE_PARKING_DAILY_RATE)
     );
   });
   it(`I submit form with ${hours} hours and ${minutes} minutes for parking time duration`, () => {
