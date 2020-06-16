@@ -27,7 +27,6 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                inputs('Do you want to proceed?')
                 sh script:'''
                     #!/bin/bash
                     cd /home/ubuntu/production/Automation_Challenge/
