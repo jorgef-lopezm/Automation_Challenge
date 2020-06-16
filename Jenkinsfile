@@ -9,6 +9,7 @@ pipeline {
             steps {
                 sh script:'''
                     #!/bin/bash
+                    pwd
                     cd /home/ubuntu/Automation_Challenge/
                     git pull origin dev
                     npm install
