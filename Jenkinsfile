@@ -1,6 +1,7 @@
 properties([pipelineTriggers([githubPush()])])
 
 node { git url: 'https://github.com/jorgef-lopezm/Automation_Challenge.git', branch: 'master' }
+def branchName = "${env.BRANCH_NAME}"
 
 pipeline {
     agent any
@@ -25,9 +26,11 @@ pipeline {
                 '''
             }
         }
-        stage('Deploy') {
-            steps {
-                echo "Deploying Stage"
+        if(branchName == 'dev'){
+            stage('Deploy') {
+                steps {
+                    echo "Deploying Stage"
+                }
             }
         }
     }
