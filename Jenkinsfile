@@ -9,7 +9,6 @@ pipeline {
             steps {
                 sh script:'''
                     #!/bin/bash
-                    pwd
                     cd /home/ubuntu/Automation_Challenge/
                     git pull origin dev
                     npm install
@@ -18,7 +17,11 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo "Testing Stage"
+                sh script:'''
+                    #!/bin/bash
+                    npm test
+                    npm run sauce
+                '''
             }
         }
         stage('Deploy') {
