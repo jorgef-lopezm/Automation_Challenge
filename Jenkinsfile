@@ -19,6 +19,7 @@ pipeline {
             steps {
                 sh script:'''
                     #!/bin/bash
+                    cd /home/ubuntu/Automation_Challenge/
                     npm test
                     npm run sauce
                 '''
