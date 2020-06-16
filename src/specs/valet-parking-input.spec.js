@@ -27,6 +27,6 @@ describe("Check if the output is correct when I select 'Valet Parking' option.",
     pickADate.selectADate(objDate.entryDate);
     parkingCostCalculator.switchFocus();
     // I calculate parking rate
-    parkingCostCalculator.calculateButton();
+    parkingCostCalculator.calculateParkingCost();
   });
 });

@@ -11,7 +11,7 @@ export default class PickADate extends Page {
   constructor() {
     super();
     this.url = '';
-    this.pageTitle = 'Pick A Date';
+    this.pageTitle = 'Pick a Date';
     this.calendarSelector = 'form > table';
   }
 

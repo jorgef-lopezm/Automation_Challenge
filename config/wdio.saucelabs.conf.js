@@ -42,16 +42,6 @@ exports.config = {
         seleniumVersion: '3.141.59',
       },
     },
-    {
-      browserName: 'safari',
-      platformName: 'macOS 10.14',
-      browserVersion: 'latest',
-      'sauce:options': {
-        build: `WebdriverIO-V5 build-${new Date().getTime()}`,
-        screenResolution: '1600x1200',
-        seleniumVersion: '3.141.59',
-      },
-    },
   ],
   logLevel: 'silent',
   bail: 0,
@@ -109,8 +99,12 @@ exports.config = {
    * @param {Array.<Object>} capabilities list of capabilities details
    * @param {Array.<String>} specs List of spec file paths that are to be run
    */
-  // before: function (capabilities, specs) {
-  // },
+  before: function (capabilities, specs) {
+    const chai = require('chai');
+    global.expect = chai.expect;
+    global.assert = chai.assert;
+    global.should = chai.should();
+  },
   /**
    * Runs before a WebdriverIO command gets executed.
    * @param {String} commandName hook command name

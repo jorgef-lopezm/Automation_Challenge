@@ -5,7 +5,8 @@
   "main": ".eslintrc.js",
   "dependencies": {
     "chromedriver": "^83.0.0",
-    "wdio-chromedriver-service": "^6.0.3"
+    "wdio-chromedriver-service": "^6.0.3",
+    "chai": "^4.2.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.1",
@@ -18,7 +19,6 @@
     "@wdio/mocha-framework": "^6.1.17",
     "@wdio/spec-reporter": "^6.1.14",
     "@wdio/sync": "^6.1.14",
-    "chai": "^4.2.0",
     "chromedriver": "^83.0.0",
     "eslint": "^7.2.0",
     "eslint-config-airbnb": "^18.0.1",

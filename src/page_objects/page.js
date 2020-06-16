@@ -22,6 +22,6 @@ export default class Page {
    * Method for changing to this desired page's window or tab
    */
   switchFocus() {
-    browser.switchWindosw(this.pageTitle);
+    browser.switchWindow(this.pageTitle);
   }
 }
