@@ -1,7 +1,7 @@
 exports.config = {
   runner: 'local',
-  user: process.env.SAUCE_USERNAME,
-  key: process.env.SAUCE_ACCESS_KEY,
+  user: 'jflopez',
+  key: '01e4fc57-98c2-43c6-b1c3-435471c25e58',
   region: 'us',
   specs: ['./src/specs/**/*.js'],
   exclude: [
