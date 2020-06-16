@@ -48,10 +48,8 @@ export default class PickADate extends Page {
     let displayedYear = parseInt($(this.yearText).getText(), 10);
 
     while (displayedYear !== yearToSelect) {
-      if (displayedYear > yearToSelect)
-        $(this.leftArrowButton).click();
-      else if (displayedYear < yearToSelect)
-        $(this.rightArrowButton).click();
+      if (displayedYear > yearToSelect) $(this.leftArrowButton).click();
+      else if (displayedYear < yearToSelect) $(this.rightArrowButton).click();
 
       displayedYear = parseInt($(this.yearText).getText(), 10);
     }

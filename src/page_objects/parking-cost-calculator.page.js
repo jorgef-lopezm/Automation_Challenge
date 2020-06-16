@@ -40,6 +40,16 @@ export default class ParkingCostCalculator extends Page {
     return 'td:nth-child(2) > span.SubHead > b';
   }
 
+  /** The entry hour input */
+  get entryHourInput() {
+    return '#StartingTime';
+  }
+
+  /** The leaving hour input */
+  get leavingHourInput() {
+    return '#LeavingTime';
+  }
+
   /**
    * Choose the desired parking lot from the dropdown
    * @param {Number} index The desired option

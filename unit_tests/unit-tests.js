@@ -3,6 +3,8 @@ import chai from 'chai';
 import randomNumber from '../src/utils/randomNumber';
 import randomDate from '../src/utils/randomDate';
 import randomDates from '../src/utils/randomDates';
+import formatMoney from '../src/utils/formatMoney';
+import randomHours from '../src/utils/randomHours';
 
 describe('Check if all my utilities functions are working as expected', () => {
   it('Check randomNumber()', () => {
@@ -91,5 +93,23 @@ describe('Check if all my utilities functions are working as expected', () => {
     chai.expect(value4.entryDate).to.be.within(new Date(2011, 2, 10), new Date(2015, 4, 20));
     chai.expect(value4.entryDate).to.be.a('date');
     chai.expect(diffDays4).to.equal(230);
+  });
+  it('Check formatMoney()', () => {
+    chai.expect(formatMoney('$10')).to.equal(10);
+    chai.expect(formatMoney('€10')).to.equal(10);
+    chai.expect(formatMoney('10')).to.equal(10);
+    chai.expect(formatMoney('L 10.00000')).to.equal(10);
+    chai.expect(formatMoney('Lps 10.0')).to.equal(10);
+    chai.expect(formatMoney(' €  10')).to.equal(10);
+  });
+  it('Check randomHours()', () => {
+    chai.expect(randomHours(4, 10).entryHour.match(/[0-9:]+/g, '').length).to.be.equal(1);
+    chai.expect(randomHours(1, 19).entryHour.match(/[0-9:]+/g, '').length).to.be.equal(1);
+    chai.expect(randomHours(1, 23).entryHour.match(/[0-9:]+/g, '').length).to.be.equal(1);
+    chai.expect(randomHours(5, 3).entryHour.match(/[0-9:]+/g, '').length).to.be.equal(1);
+    chai.expect(randomHours(23, 34).leavingHour.match(/[0-9:]+/g, '').length).to.be.equal(1);
+    chai.expect(randomHours(12, 11).leavingHour.match(/[0-9:]+/g, '').length).to.be.equal(1);
+    chai.expect(randomHours(4, 1).leavingHour.match(/[0-9:]+/g, '').length).to.be.equal(1);
+    chai.expect(randomHours(10, 10).leavingHour.match(/[0-9:]+/g, '').length).to.be.equal(1);
   });
 });
